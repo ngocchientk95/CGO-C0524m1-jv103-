@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let name = prompt("Nhập vào tên");
+    // document.write(name);
+    // Khai báo biến
+    // let name = "Chiến"; => biến số
+    // var age = 30; => biến số
+    // const ACADEMY = "Codegym"; => Biến hằng = hằng số
+
+    // Khởi tạo biến
+    // name = "chiến";
+
+    // Cú phap khai báo biến = keyword varname;
+
+    // A. So sánh khai báo biến
+    // 1. Var ra đời trước, Let và const ra đời từ ES6 ( 2015 )
+
+    // 2. Khai báo lại cùng tên biến Var ok, Let báo lỗi
+        // var name = "chien";
+        // console.log("Dòng 26: " + name);
+        // var name = "docccc";
+        // console.log("Dòng 28 " + name);
+//=>>>>> Let lỗi, không khai báo được cùng tên biến.
+        // let name = "chien";
+        // console.log("Dòng 26: " + name);
+        // let name = "docccc";
+     // console.log("Dòng 28 " + name);
+    // 3. Sử dụng trước, khai báo sau.
+        // Var không lỗi, Let lỗi
+        //  var name = "chien";
+        // console.log("Dòng 26: " + name);
+//=>>>>>> Let lỗi, phải khai báo trước sau đó sử dụng
+        // let name = "chien";
+        // console.log("Dòng 26: " + name);
+//==>>> CƠ chế hoisting cho phép các biến khai báo bằng var được đưa lên đầu phạm vi của nó
+
+    // 4. Phạm vi hoạt động
+        // Let: Thì phạm vi hoạt động nằm trong block scope
+        // {} => là 1 block scope
+        // Var : Phạm vi hoạt động trong function scope
+        // function doSth(){   }
+    // 5. với const : khi khai báo phải gắn giá trị cùng lúc
+        // nếu khai báo 2 loại biến là const:
+            // là kiểu nguyên thủy thì khng cho phép thay đổi giá tri biến
+            // nết là kiểu đối tượng, chỉ cho phép thay đổi bên trong đối tượng
+        // Còn lại giống Let
+
+    // B. kiểu dữ liệu
+        // kiểu nguyên thủy:
+            // String: kiểu chuô
+            // number: kiểu số
+            // boolean: Kiểu đúng sai ( true + false )
+            // undefined: được gán cho 1 biến chưa khởi tạo giá trị
+            // Null: đại diện cho 1 biến rỗng, không chứa bất kỳ 1 giá trị gì, khai báo = null
+    let name;
+    console.log(name);
+</script>
+</body>
+</html>

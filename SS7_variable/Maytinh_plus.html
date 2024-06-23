@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4">
+            <input id="window" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="nhap(1)">1</button>
+        </td>
+        <td>
+            <button onclick="nhap(2)">2</button>
+        </td>
+        <td>
+            <button onclick="nhap(3)">3</button>
+        </td>
+        <td>
+            <button onclick="nhap('+')">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="nhap(4)">4</button>
+        </td>
+        <td>
+            <button onclick="nhap(5)">5</button>
+        </td>
+        <td>
+            <button onclick="nhap(6)">6</button>
+        </td>
+        <td>
+            <button onclick="nhap('-')">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="nhap(7)">7</button>
+        </td>
+        <td>
+            <button onclick="nhap(8)">8</button>
+        </td>
+        <td>
+            <button onclick="nhap(9)">9</button>
+        </td>
+        <td>
+            <button onclick="nhap('*')">x</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="xoa()">C</button>
+        </td>
+        <td>
+            <button onclick="nhap(0)">0</button>
+        </td>
+        <td>
+            <button onclick="bang()">=</button>
+        </td>
+        <td>
+            <button onclick="nhap('/')">/</button>
+        </td>
+    </tr>
+</table>
+<script>
+    let input = document.getElementById("window");
+
+    function nhap(kyTu) {
+        input.value += kyTu;
+    }
+
+    function so1() {
+        document.getElementById("window").value += 1;
+    }
+
+    function so2() {
+        document.getElementById("window").value += 2;
+    }
+
+    function so3() {
+        document.getElementById("window").value += 3;
+    }
+
+    function so4() {
+        document.getElementById("window").value += 4;
+    }
+
+    function so5() {
+        document.getElementById("window").value += 5;
+    }
+
+    function so6() {
+        document.getElementById("window").value += 6;
+    }
+
+    function so7() {
+        document.getElementById("window").value += 7;
+    }
+
+    function so8() {
+        document.getElementById("window").value += 8;
+    }
+
+    function so9() {
+        document.getElementById("window").value += 9;
+    }
+
+    function so0() {
+        document.getElementById("window").value += 0;
+    }
+
+    function cong() {
+        document.getElementById("window").value += "+";
+    }
+
+    function tru() {
+        document.getElementById("window").value += "-";
+    }
+
+    function nhan() {
+        document.getElementById("window").value += "*";
+    }
+
+    function chia() {
+        document.getElementById("window").value += "/";
+    }
+
+    function bang() {
+        let string = document.getElementById("window").value;
+        let result = eval(string);
+        input.value = result;
+    }
+
+    function xoa() {
+        input.value = "";
+    }
+
+</script>
+</body>
+</html>

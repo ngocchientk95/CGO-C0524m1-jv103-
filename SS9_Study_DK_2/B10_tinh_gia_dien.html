@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let yourNumber = +prompt("Nhập số KWH điện đã sử dụng");
+    let money ="";
+    if (yourNumber <= 50) {
+        money = yourNumber * 2000;
+        document.write("Số tiền điện:" + money);
+    } else if ( yourNumber <= 100 ) {
+        money = ( yourNumber - 50)*2500 + ( 50*2000);
+        document.write("Số tiền điện:" + money);
+    } else if ( yourNumber <= 200 ) {
+        money = ( yourNumber - 100)*3000 + ( 50*2000) +  (50*2500);
+        document.write("Số tiền điện:" + money);
+    } else {
+        money = ( yourNumber - 200)*3500 + ( 50*2000) +  (50*2500) + ( 100*3000);
+        document.write("Số tiền điện:" + money);
+    }
+</script>
+</body>
+</html>

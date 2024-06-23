@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Điểm kiểm tra 15 phút</th>
+        <th>Điểm kiểm tra 45 phút</th>
+        <th>Điểm thi giữa kỳ</th>
+        <th>Điểm thi cuối kỳ</th>
+    </tr>
+    <tr>
+        <td><input type="text" id="DT15"></td>
+        <td><input type="text" id="DT45"></td>
+        <td><input type="text" id="giuaky"></td>
+        <td><input type="text" id="cuoiky"></td>
+    </tr>
+</table>
+<button type="button" onclick="doSth()">học lực</button>
+<script>
+    function doSth() {
+        let fastTest = +document.getElementById("DT15").value;
+        let test = +document.getElementById("DT45").value;
+        let endTest1 = +document.getElementById("giuaky").value;
+        let endTest2 = +document.getElementById("cuoiky").value;
+        let value = fastTest * 0.1 + test * 0.2 + endTest1 * 0.35 + endTest2 * 0.35;
+        if (value >= 8) {
+            alert("Học lực giỏi")
+        } else if (value >= 6) {
+            alert("Học lực khá")
+        } else if (value >= 4) {
+            alert("Học lực trung bình")
+        } else {
+            alert("học lại")
+        }
+    }
+</script>
+
+</body>
+</html>

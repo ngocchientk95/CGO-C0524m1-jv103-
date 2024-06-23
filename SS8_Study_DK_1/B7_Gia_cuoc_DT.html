@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Phút gọi</th>
+        <th>Nhà mạng</th>
+
+    </tr>
+    <tr>
+        <td><input type="text" id="time"></td>
+        <td><select id="networkName">
+            <option value="viettel">Viettel</option>
+            <option value="mobiphone">mobiphone</option>
+            <option value="vinaphone">Vinaphone</option>
+        </select></td>
+        <td>
+            <button type="button" onclick="result">result</button>
+        </td>
+    </tr>
+</table>
+<p id="cost"></p>
+<script>
+    function result() {
+        let time = +document.getElementById("time").value;
+        let networkName = document.getElementById("networkName").value;
+        let money = 0;
+        if (networkName === "viettel") {
+            money = (time * 800) + 22000;
+        } else if (networkName === "mobiphone") {
+            money = (time * 700) + 25000;
+        } else {
+            money = (time * 850) + 25000;
+        }
+        document.getElementById("cost").innerText = "Giá tiền:" + money;
+    }
+</script>
+</body>
+</html>

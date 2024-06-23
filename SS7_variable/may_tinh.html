@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Caculator</h1>
+<input id="num1">
+<input id="num2"><br>
+<button onclick="cong()">Addition(+)</button>
+<button onclick="tru()">Subtraction(-)</button>
+<button onclick="nhan()">Multiplication(X)</button>
+<button onclick="chia()">Division(/)</button>
+<h3 id="result"></h3>
+<script>
+
+    let input1 = document.getElementById("num1");
+    let input2 = document.getElementById("num2");
+
+    function cong() {
+        let num1 = +input1.value;
+        let num2 = +input2.value;
+        let result = num1 + num2;
+        document.getElementById("result").innerText = "Ket qua la:" + result;
+    }
+
+    function tru() {
+        let num1 = +input1.value;
+        let num2 = +input2.value;
+        let result = num1 - num2;
+        document.getElementById("result").innerText = "Ket qua la:" + result;
+    }
+
+    function nhan() {
+        let num1 = +input1.value;
+        let num2 = +input2.value;
+        let result = num1 * num2;
+        document.getElementById("result").innerText = "Ket qua la:" + result;
+    }
+
+    function chia() {
+        let num1 = +input1.value;
+        let num2 = +input2.value;
+        let result = num1 / num2;
+        document.getElementById("result").innerText = "Ket qua la:" + result;
+    }
+</script>
+</body>
+</html>

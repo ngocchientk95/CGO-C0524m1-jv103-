@@ -9,35 +9,34 @@
     <tr>
         <th>Phút gọi</th>
         <th>Nhà mạng</th>
-
     </tr>
     <tr>
         <td><input type="text" id="time"></td>
         <td><select id="networkName">
-            <option value="viettel">Viettel</option>
-            <option value="mobiphone">mobiphone</option>
-            <option value="vinaphone">Vinaphone</option>
+            <option value="viettel">viettel</option>
+            <option value="mobi">mobiphone</option>
+            <option value="vina">vinaphone</option>
         </select></td>
         <td>
-            <button type="button" onclick="result">result</button>
+            <button type="button" onclick="tinhtien()">result</button>
         </td>
     </tr>
 </table>
-<p id="cost"></p>
+<h1 id="cost">Giá tiền:</h1>
+</body>
 <script>
-    function result() {
+    function tinhtien() {
         let time = +document.getElementById("time").value;
         let networkName = document.getElementById("networkName").value;
         let money = 0;
         if (networkName === "viettel") {
-            money = (time * 800) + 22000;
-        } else if (networkName === "mobiphone") {
-            money = (time * 700) + 25000;
+            money = time * 800 + 22000;
+        } else if (networkName === "mobi") {
+            money = time * 700 + 25000;
         } else {
-            money = (time * 850) + 25000;
+            money = time * 850 + 25000;
         }
         document.getElementById("cost").innerText = "Giá tiền:" + money;
     }
 </script>
-</body>
 </html>

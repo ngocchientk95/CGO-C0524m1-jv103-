@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// Khai báo và khởi tạo trực tiếp
+// let numbers = [12,3,4,5,5,6,6,5,5];
+// // let arrNumbers = [12,23,4,4,42,2,];
+// console.log(numbers.length); // độ dài mảng ( kết quả là 9 element)
+// console.log(numbers[0]);
+// console.log(numbers[4]);
+// console.log(numbers); //  Hiển thị toàn mảng
+// console.log(numbers[10]); // Nếu truy cập đến 1 phần tử không nằm trong mảng thì giá trị là undifind
+
+// Cách 2, sử dụng constructor để khai báo và khởi tạo mảng
+// let numbers = new array(2); // nếu điền vào 1 số là độ dài mảng
+// let numbers = new array(2,3,4,4) // nếu điền vào 2=> nhiều chữ, hoặc null là phần tử của mảng
+// let numbers = new array(1.1) // Nếu điền vào 1 số k phải ố nguyên thì lỗi
+
+// Cách 3, SD Array
+// let numbers = Array(1,2,2); // chữ A viết hoa.
+// VD
+// cho người dùng tự Khai báo 1 mảng
+// let size =+prompt("nhập dữ liệu mảng");
+// let arr = [];
+// for (let i = 0; i < size; i++) {
+//     arr[i] = +prompt(`nhập vào phần tử thứ ${i+1}`);
+// }
+// document.write(arr);
+
+/* Các hàm thông dụng*/
+// Push () , pop () , shift () , unshift()
+// let numbers=[45,32,14,21,15]
+// numbers.push(12,3,4,21,12); // Thêm phần tử vào cuối mảng và trả về độ dài mảng mới.
+// numbers.unshift(12,4,4,3); // Thêm phần tử vào đầu mảng và trả về độ dài mảng mới.
+// numbers.pop(); // xóa phần tử ở cuối mã và trả về giá trị phần tử bị xóa
+// numbers.shift(12); // xóa phần tử ở đầu mã và trả về giá trị phần tử bị xóa
+// reverse(): đảo ngược phần tử trong mã và trả về mảng ngược lại
+// concat(): nỗi mã theo thứ tự và trả lại mảng đã được nối. vd: (numbers.concat(numbers2))
+// sort (): Sắp xếp mảng, sẽ so sánh từng giá trị trong phần tử, từng giá trị trong 1 phần tử xong sắp xếp;
+    //VD. let numbers=[45,32,14,21,15,113]     numbers.sort(); => Kết quả là [113,14,15,21,32,45]
+// splice(): thêm hoặc xóa ở vị trí bất kì trong mảng: vd: numbers.splice(2,1): sẽ xóa bắt đầu từ vị trí số 2 và xóa 1 phần tử.
+    // THêm: numbers.splice(2,1,12,123,132): sẽ xóa bắt đầu từ vị trí số 2 và xóa 1 phần tử và thêm 12,123,132 vào chỗ vừa bị xóa.
+// high order function - callback function => tự tìm hiểu
+// toString() - join(): chuyển mảng thành chuỗi
+    // let number1= numbers.join("-"): có thể thêm dấu "-" vào giữa các phần tử
+    // let number1= numbers.toString(): không thêm được dấu vào giữa các phần tử
+</script>
+</body>
+</html>

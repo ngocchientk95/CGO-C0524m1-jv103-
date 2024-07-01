@@ -9,7 +9,12 @@
     let numbers = [2, 4, 1, 5432, 12, 123, 124, 143, 213, 126];
     let max = "";
     for (let a = 0; a < 10; a++) {
+        // vòng lặp đầu tiên, đem số lớn nhất ra đầu mảng.
+        // a=0 => value =2\
+        debugger;
         for (let b = a + 1; b < 10; b++)
+            // vòng lặp thứ 2:
+            // b=4=> value=4
             if (numbers[b] > numbers[a]) {
                 numbers[max] = numbers[b];
                 numbers[b] = numbers[a];

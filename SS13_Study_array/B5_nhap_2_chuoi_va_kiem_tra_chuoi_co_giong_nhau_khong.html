@@ -6,19 +6,23 @@
 </head>
 <body>
 <script>
-    let str1 = [];
-    let str2 = [];
-    str1 = prompt("Nhập chuỗi ký tự thứ 1");
-    str2 = prompt("Nhập chuỗi ký tự thứ 2");
-    console.log('chuỗi 1: ' + str1);
-    console.log('chuỗi 2: ' + str2);
-    for (let i = 0; i < str1.length; i++) {
-        for (let j = 0; j < str2.length; j++) {
-            if (str2[j] === str1[i]) {
-                console.log('chuỗi 1 và 2 giống nhau là: ' + str2[j]);
-            }
-        }
-    }
+    let str1 = prompt("Nhập chuỗi ký tự thứ 1");
+    let str2 = prompt("Nhập chuỗi ký tự thứ 2");
+    // console.log('chuỗi 1: ' + str1);
+    // console.log('chuỗi 2: ' + str2);
+   if(str1.length === str2.length){
+       for (let i=0; i<str1.length; i++){}
+       if(str1[i]) !== str2[i]{
+           console.log(" khác nhau ");
+           flag = false;
+           break;
+       }
+   }
+   if(flag){
+       console.log("giống nhau")
+   } else {
+       console.log("khác nhau")
+   }
 </script>
 </body>
 </html>

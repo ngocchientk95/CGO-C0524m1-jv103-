@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // -Viết chương trình : nhập vào 1 mảng từ bàn phím với n<=50.
+    // -Hiển thị mảng vừa nhập
+    // '-Sau đó kiểm tra
+    // Nếu mảng chẵn thì hiển thị "Mảng chẵn"
+    // Nêu mảng lẻ thì hiển thị "Mảng lẻ"
+    // Ngược lại nếu không chẵn, ko lẻ hiển thị "Mảng hỗ hợp"
+    // B1: nhập độ dài của mảng : 5 điểm
+    let n;
+    do {
+        n = +prompt("nhập độ dài của mảng");
+    } while (n <= 0 || n > 50);
+    //B2 nhập phần tử cho mảng 10 điểm
+    let array = new Array(n);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = prompt("nhập vào phần tử thứ : " + i);
+    }
+    //B3: Hiển thị mảng vừa nhập
+    alert("mảng vừa nhập là: " + array);
+    // B4 : kiểm tra mảng chẵn lẻ : 10 điểm
+    let count1 = 0; // đếm số pt chẵn
+    let count2 = 0; // đếm số pt lẻ
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 == 0) {
+            count1++;
+        } else {
+            count2++;
+        }
+    }
+    if (count1 == array.length) {
+        alert("Mảng chẵn");
+    } else if (count2 == array.length) {
+        alert("Mảng lẻ");
+    } else {
+        alert("Mảng hỗn hợp");
+    }
+</script>
+</body>
+</html>

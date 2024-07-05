@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [2,4,5,7,7,7,8];
+    let v = prompt("nhập v: ")
+    for (let i = 0; i <array.length ; i++) {
+        if (array[i]==v){
+            for (let j = i; j <array.length-1 ; j++) {
+                array[j]=array[j+1];
+            }
+            array[array.length-1]=0;
+            i--;
+        }
+    }
+
+    // for (let i = 0; i <array.length ; i++) {
+    //     if (array[i]==v){
+    //         array.splice(i,1);
+    //         array.push(0)
+    //         i--;
+    //     }
+    // }
+    alert(array);
+</script>
+</body>
+</html>

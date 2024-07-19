@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="foot" placeholder="foot">
+<button onclick="convertFM()">chuyển từ foot sang meter</button>
+<br>
+<input type="number" id="meter" placeholder="meter">
+<button onclick="convertMF()">chuyển từ meter sang foot</button>
+
+<h1 id="result">chuyển đổi thành:</h1>
+<script>
+    let result = "";
+
+    function convertFM() {
+        let foot = +document.getElementById("foot").value;
+        result = foot * 0.305;
+        document.getElementById("result").innerText = "chuyển đổi thành:" + result + "meter";
+    }
+
+    function convertMF() {
+        let meter = +document.getElementById("meter").value;
+        result = meter * 3.279;
+        document.getElementById("result").innerText = "chuyển đổi thành:" + result + "foot";
+    }
+</script>
+</body>
+</html>

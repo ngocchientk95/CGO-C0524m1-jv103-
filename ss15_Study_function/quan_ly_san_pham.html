@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add new product</h3>
+<input type="text" id="productName" placeholder="New product"> <button onclick="addNewProduct()">ADD</button>
+
+<h3>Display all product</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Product name</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+
+    </tbody>
+</table>
+
+<script>
+    let arrProduct = ["xiaomi","iphone"];
+    function displayProductList(arrProduct){
+        let str ="";
+        for (let i = 0; i < arrProduct.length; i++) {
+            // str +="<tr>";
+            // str +="<td>";
+            // str += arrProduct[i];
+            // str +="</td>";
+            // str +="</tr>";
+            str +=`<tr>
+                        <td> ${arrProduct[i]} </td>
+                   </tr>`;
+        }
+        document.getElementById("body").innerHTML=str;
+    }
+    displayProductList(arrProduct);
+
+</script>
+</body>
+</html>

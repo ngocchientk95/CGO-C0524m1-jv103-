@@ -6,11 +6,19 @@
 </head>
 <body>
 <script>
-let starName = [Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus];
-let constellationName = [Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo];
-function findStar(){
+    let starName = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let constellationName = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
 
-}
+    function findStar(star) {
+        for (let i = 0; i < starName.length; i++) {
+            if (starName[i] === star) {
+                return constellationName[i];
+            }
+        }
+        return "khong tim thay ngoi sao nao";
+    }
+
+    alert(findStar("Polaris"));
 </script>
 </body>
 </html>

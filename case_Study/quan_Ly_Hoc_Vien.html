@@ -3,67 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="QL.css">
 </head>
 <body>
-
-<div style="float: left; margin-right: 200px">
-    <table>
-        <tr>
-            <th colspan="2">Thông tin học viên</th>
+<h1>QUẢN LÝ HỌC VIÊN</h1>
+<div  class ="input">
+    <table class="table1">
+        <tr class="logo">
+            <th colspan="2" class="th1">Thông tin học viên</th>
         </tr>
-        <tr>
-            <td>ID</td>
-            <td>
-                <input type="number" id="studentID">
+        <tr class="th2">
+            <td class="inf">ID</td>
+            <td class="inf2">
+                <input type="number" id="studentID" class="enter_information">
             </td>
         </tr>
-        <tr>
-            <td>Họ tên</td>
-            <td>
-                <input type="text" id="studentName">
+        <tr class="th2">
+            <td class="inf">Họ tên</td>
+            <td class="inf2">
+                <input type="text" id="studentName" class="enter_information">
             </td>
         </tr>
-        <tr>
-            <td>Ngày Sinh</td>
-            <td>
-                <input type="date" id="studentDate">
+        <tr class="th2">
+            <td class="inf">Ngày Sinh</td>
+            <td class="inf2">
+                <input type="date" id="studentDate" class="enter_information">
             </td>
         </tr>
-        <tr>
-            <td>giới tính</td>
-            <td>
-                <select id="studentSex">
+        <tr class="th2">
+            <td class="inf">giới tính</td>
+            <td class="inf2">
+                <select id="studentGender" class="enter_information">
                     <option value="Nam"> Nam</option>
                     <option value="Nữ"> Nữ</option>
                 </select>
             </td>
         </tr>
-        <tr>
-            <td>lớp</td>
-            <td>
-                <input type="text" id="studentCLass">
+        <tr class="th2">
+            <td class="inf">lớp</td>
+            <td class="inf2">
+                <input type="text" id="studentCLass" class="enter_information">
             </td>
         </tr>
-        <td>ảnh</td>
-        <td>
-            <input type="file" id="studentImg">
+        <td class="inf">ảnh</td>
+        <td class="inf2">
+            <input type="file" id="studentImg" class="enter_information">
         </td>
         </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button onclick="addStudent()">Add</button>
-                <button onclick="save()">Save</button>
+        <tr class="th1">
+            <td class="inf"></td>
+            <td class="inf2">
+                <button onclick="addStudent()" style="background-color:green">Add</button>
+                <button onclick="save()" style="background-color:yellow">Save</button>
             </td>
         </tr>
     </table>
 </div>
-<div>
-    <h2> Danh sách học viên</h2>
-    <table>
+<div class="table1" style="float: left">
+    <h3> Danh sách học viên</h3>
+    <table >
         <thead>
         <tr>
-            <th>ID</th>
+            <th class="DS">ID</th>
             <th>Họ tên</th>
             <th>Ngày sinh</th>
             <th>Giới tính</th>
@@ -79,15 +80,16 @@
     let arrStudent = [];
 
     class Student {
-        constructor(studentID, studentName, studentDate, studentSex, studentClass, studentImg) {
+        constructor(studentID, studentName, studentDate, studentGender, studentClass, studentImg) {
             this.studentID = studentID;
             this.studentName = studentName;
             this.studentDate = studentDate;
-            this.studentSex = studentSex;
+            this.studentGender = studentGender;
             this.studentClass = studentClass;
             this.studentImg = studentImg;
         }
     }
+
     function displayStudent() {
         let str = "";
         for (let i = 0; i < arrStudent.length; i++) {
@@ -95,43 +97,63 @@
                        <td>${arrStudent[i].studentID}</td>
                        <td>${arrStudent[i].studentName}</td>
                        <td>${arrStudent[i].studentDate}</td>
-                       <td>${arrStudent[i].studentSex}</td>
+                       <td>${arrStudent[i].studentGender}</td>
                        <td>${arrStudent[i].studentClass}</td>
-                       <td>${arrStudent[i].studentImg}</td>
+                       <td><img src="${arrStudent[i].studentImg}" alt=""></td>
                        <td>
-                       <button onclick="del()">delete</button>
-                       <button onclick="fix()">edit</button>
+                       <button onclick="del(${i})" style="background-color: red">delete</button>
+                       <button onclick="fix(${i})" style="background-color: orange">edit</button>
                         </td>
             </tr>`;
         }
         document.getElementById("body").innerHTML = str;
     }
+
     function addStudent() {
         let studentID = document.getElementById("studentID").value;
         let studentName = document.getElementById("studentName").value;
         let studentDate = document.getElementById("studentDate").value;
-        let studentSex = document.getElementById("studentSex").value;
+        let studentGender = document.getElementById("studentGender").value;
         let studentClass = document.getElementById("studentCLass").value;
         let temp = document.getElementById("studentImg").value;
-        let newstudent = new Student(studentID, studentName, studentDate, studentSex, studentClass);
+        let array = temp.split("\\");
+        let studentImg = array[2];
+        let newstudent = new Student(studentID, studentName, studentDate, studentGender, studentClass, studentImg);
         arrStudent.push(newstudent);
-        document.getElementById("studentID").value="";
-        document.getElementById("studentName").value="";
-        document.getElementById("studentDate").value="";
-        document.getElementById("studentSex").value = "";
+        document.getElementById("studentID").value = "";
+        document.getElementById("studentName").value = "";
+        document.getElementById("studentDate").value = "";
+        document.getElementById("studentGender").value = "";
         document.getElementById("studentCLass").value = "";
+        document.getElementById("studentImg").value = "";
         displayStudent(arrStudent);
     }
+
     function del(i) {
         let check = confirm("bạn có thực sự muốn xóa");
-        if (check == true){
-            arrStudent.splice(i , 1);
+        if (check == true) {
+            arrStudent.splice(i, 1);
         }
         displayStudent(arrStudent);
     }
 
-    function fix(i){
-        document.getElementById("studentID").inertHTML = arrStudent[i].studentID;
+    function fix(i) {
+        let studentID = document.getElementById("studentID").value;
+        let studentName = document.getElementById("studentName").value;
+        let studentDate = document.getElementById("studentDate").value;
+        let studentGender = document.getElementById("studentGender").value;
+        let studentClass = document.getElementById("studentCLass").value;
+        let temp = document.getElementById("studentImg").value;
+        let array = temp.split("\\");
+        let studentImg = array[2];
+        let newstudent = new Student(studentID, studentName, studentDate, studentGender, studentClass, studentImg);
+        arrStudent[i].studentID = studentID;
+        arrStudent[i].studentName = studentName;
+        arrStudent[i].studentDate = studentDate;
+        arrStudent[i].studentGender = studentGender;
+        arrStudent[i].studentClass = studentClass;
+        arrStudent[i].studentImg = studentImg;
+        displayStudent(arrStudent);
     }
 </script>
 </body>

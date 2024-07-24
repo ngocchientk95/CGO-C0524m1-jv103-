@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="QL.css">
 </head>
 <body>
-<div class="header">
-    <img class="backgroudIMG" src="" alt="Chưa tìm thấy ảnh phù hợp">
-</div>
 <h1>QUẢN LÝ HỌC VIÊN</h1>
 <div class="input">
     <table class="table1">
@@ -18,7 +15,7 @@
         <tr class="th2">
             <td class="inf">ID</td>
             <td class="inf2">
-                <input type="number" id="studentID" class="enter_information">
+                <input type="text" id="studentID" class="enter_information">
             </td>
         </tr>
         <tr class="th2">
@@ -28,13 +25,13 @@
             </td>
         </tr>
         <tr class="th2">
-            <td class="inf">Ngày sinh</td>
+            <td class="inf">Ngày Sinh</td>
             <td class="inf2">
                 <input type="date" id="studentDate" class="enter_information">
             </td>
         </tr>
         <tr class="th2">
-            <td class="inf">Giới tính</td>
+            <td class="inf">giới tính</td>
             <td class="inf2">
                 <select id="studentGender" class="enter_information">
                     <option value="Nam"> Nam</option>
@@ -43,12 +40,12 @@
             </td>
         </tr>
         <tr class="th2">
-            <td class="inf">Lớp</td>
+            <td class="inf">lớp</td>
             <td class="inf2">
                 <input type="text" id="studentCLass" class="enter_information">
             </td>
         </tr>
-        <td class="inf">Ảnh</td>
+        <td class="inf">ảnh</td>
         <td class="inf2">
             <input type="file" id="studentImg" class="enter_information">
         </td>
@@ -57,23 +54,24 @@
             <td class="inf"></td>
             <td class="inf2">
                 <button onclick="addStudent()" style="background-color:green">Add</button>
-                <button onclick="clear()" style="background-color:yellow">clear</button>
+                <button onclick="saveStudent(${i})">save</button>
+                <button onclick="clearSTD()" style="background-color:yellow">clear</button>
             </td>
         </tr>
     </table>
 </div>
-<div class="table2" style="float: left">
+<div class="table1" style="float: left">
     <h3> Danh sách học viên</h3>
     <table>
         <thead>
         <tr>
             <th class="DS">ID</th>
-            <th class="DS">Họ tên</th>
-            <th class="DS">Ngày sinh</th>
-            <th class="DS">Giới tính</th>
-            <th class="DS">Lớp</th>
-            <th class="DS">Ảnh</th>
-            <th class="DS">Tùy chọn</th>
+            <th>Họ tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Lớp</th>
+            <th>Ảnh</th>
+            <th>Tùy chọn</th>
         </tr>
         </thead>
         <tbody id="body"></tbody>
@@ -97,13 +95,13 @@
         let str = "";
         for (let i = 0; i < arrStudent.length; i++) {
             str += `<tr>
-                       <td class="DS">${arrStudent[i].studentID}</td>
-                       <td class="DS">${arrStudent[i].studentName}</td>
-                       <td class="DS">${arrStudent[i].studentDate}</td>
-                       <td class="DS">${arrStudent[i].studentGender}</td>
-                       <td class="DS">${arrStudent[i].studentClass}</td>
-                       <td class="DS"><img src="${arrStudent[i].studentImg}" alt=""></td>
-                       <td class="DS">
+                       <td>${arrStudent[i].studentID}</td>
+                       <td>${arrStudent[i].studentName}</td>
+                       <td>${arrStudent[i].studentDate}</td>
+                       <td>${arrStudent[i].studentGender}</td>
+                       <td>${arrStudent[i].studentClass}</td>
+                       <td><img src="${arrStudent[i].studentImg}" alt=""></td>
+                       <td>
                        <button onclick="del(${i})" style="background-color: red">delete</button>
                        <button onclick="fix(${i})" style="background-color: orange">edit</button>
                         </td>
@@ -141,6 +139,15 @@
     }
 
     function fix(i) {
+        document.getElementById("studentID").value = arrStudent[i].studentID;
+        document.getElementById("studentName").value = arrStudent[i].studentName;
+        document.getElementById("studentDate").value = arrStudent[i].studentDate;
+        document.getElementById("studentGender").value = arrStudent[i].studentGender;
+        document.getElementById("studentCLass").value = arrStudent[i].studentClass;
+    }
+
+    function saveStudent(i){
+        let num = i;
         let studentID = document.getElementById("studentID").value;
         let studentName = document.getElementById("studentName").value;
         let studentDate = document.getElementById("studentDate").value;
@@ -150,6 +157,7 @@
         let array = temp.split("\\");
         let studentImg = array[2];
         let newstudent = new Student(studentID, studentName, studentDate, studentGender, studentClass, studentImg);
+        Student.splice(num,1,newstudent);
         arrStudent[i].studentID = studentID;
         arrStudent[i].studentName = studentName;
         arrStudent[i].studentDate = studentDate;
@@ -159,7 +167,7 @@
         displayStudent(arrStudent);
     }
 
-    function clear() {
+    function clearSTD() {
         document.getElementById("studentID").value = "";
         document.getElementById("studentName").value = "";
         document.getElementById("studentDate").value = "";
@@ -167,36 +175,6 @@
         document.getElementById("studentCLass").value = "";
         document.getElementById("studentImg").value = "";
     }
-
-    // function fix(i) {
-    //     document.getElementById("studentID").value = arrStudent[i].studentID;
-    //     document.getElementById("studentName").value = arrStudent[i].studentName;
-    //     document.getElementById("studentDate").value = arrStudent[i].studentDate;
-    //     document.getElementById("studentGender").value = arrStudent[i].studentGender;
-    //     document.getElementById("studentCLass").value = arrStudent[i].studentClass;
-    // }
-    //
-    // function saveStudent(i){
-    //     let num = i;
-    //     let studentID = document.getElementById("studentID").value;
-    //     let studentName = document.getElementById("studentName").value;
-    //     let studentDate = document.getElementById("studentDate").value;
-    //     let studentGender = document.getElementById("studentGender").value;
-    //     let studentClass = document.getElementById("studentCLass").value;
-    //     let temp = document.getElementById("studentImg").value;
-    //     let array = temp.split("\\");
-    //     let studentImg = array[2];
-    //     let newstudent = new Student(studentID, studentName, studentDate, studentGender, studentClass, studentImg);
-    //     Student.splice(num,1,newstudent);
-    //     arrStudent[i].studentID = studentID;
-    //     arrStudent[i].studentName = studentName;
-    //     arrStudent[i].studentDate = studentDate;
-    //     arrStudent[i].studentGender = studentGender;
-    //     arrStudent[i].studentClass = studentClass;
-    //     arrStudent[i].studentImg = studentImg;
-    //     displayStudent(arrStudent);
-    // }
-
 </script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="maDT">
+<input type="text" id="tenDT">
+<input type="text" id="hangDT">
+<input type="number" id="gia">
+<button onclick="add()">add</button>
+<button onclick="sort()">sort</button>
+<hr>
+
+<table>
+    <thead>
+    <tr>
+        <th style="padding: 50px">Mã điện thoại</th>
+        <th style="padding: 50px">Tên điện thoại</th>
+        <th style="padding: 50px">Hãng điện thoại</th>
+        <th style="padding: 50px">Giá</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    </tbody>
+</table>
+<script>
+    class Phone {
+        constructor(maDT, tenDT, hangDT, giaDT) {
+            this.ma = maDT;
+            this.ten = tenDT;
+            this.hang = hangDT;
+            this.gia = giaDT;
+        }
+
+        setMaDT(maDT) {
+            this.ma = maDT;
+        }
+
+        setTen(tenDT) {
+            this.ten = tenDT;
+        }
+
+        setHangDT(hangDT) {
+            this.hang = hangDT;
+        }
+
+        setGiaDT(giaDT) {
+            this.gia = giaDT;
+        }
+
+        getMaDT() {
+            return this.ma;
+        }
+
+        getTenDT() {
+            return this.ten;
+        }
+
+        getHangDT() {
+            return this.hang;
+        }
+
+        getGiaDT() {
+            return this.gia;
+        }
+
+        toString() {
+            return `maDT: ${this.ma}, TenDT: ${this.ten}, hangDT: ${this.hang}, giaDT: ${this.gia}`;
+        }
+    }
+
+    let arr = [];
+
+    function displaySP() {
+        let std = "";
+        for (let i = 0; i < arr.length; i++) {
+            std += `<tr>
+                   <td> ${arr[i].ma}</td>
+                   <td> ${arr[i].ten}</td>
+                   <td> ${arr[i].hang}</td>
+                   <td> ${arr[i].gia}</td>
+                </tr>`;
+        }
+        document.getElementById("body").innerHTML = std;
+    }
+
+    function add() {
+        let maDT = document.getElementById("maDT").value;
+        let tenDT = document.getElementById("tenDT").value;
+        let hangDT = document.getElementById("hangDT").value;
+        let giaDT = +document.getElementById("gia").value;
+        let add = new Phone(maDT, tenDT, hangDT, giaDT);
+        arr.push(add);
+        displaySP(arr);
+        document.getElementById("maDT").value = "";
+        document.getElementById("tenDT").value = "";
+        document.getElementById("hangDT").value = "";
+        document.getElementById("gia").value = "";
+    }
+
+    let arrSort = [];
+
+    function sort() {
+        for (let i = 0; i < arr.length; i++) {
+            arrSort.push(arr[i].ten);
+            arrSort.sort();
+        }
+        console.log(arrSort);
+    }
+</script>
+</body>
+</html>

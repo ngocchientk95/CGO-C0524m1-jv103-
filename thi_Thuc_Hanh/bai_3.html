@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="arrPrime"></h1>
+<h2 id="arrPrimeSort"></h2>
+<script>
+    let number = +prompt("Nhap do dai mang");
+    let arr = [];
+    let arrPrime = [];
+    for (let i = 0; i < number; i++) {
+        arr[i] = +prompt(`Nhap phan tu thu: ${i + 1}`)
+    }
+
+    function primeNumber() {
+        for (let j = 0; j < number; j++) {
+            if (arr[j] == 3 || arr[j] == 5 || arr[j] == 7) {
+                arrPrime.push(arr[j]);
+            } else if (arr[j] >= 8 && arr[j] % 2 != 0 && arr[j] % 3 != 0 && arr[j] % 5 != 0 && arr[j] % 7 != 0) {
+                arrPrime.push(arr[j]);
+            }
+        }
+    }
+
+    primeNumber();
+    document.getElementById("arrPrime").innerText = arrPrime;
+    document.getElementById("arrPrimeSort").innerText = arrPrime.sort();
+</script>
+</body>
+</html>
